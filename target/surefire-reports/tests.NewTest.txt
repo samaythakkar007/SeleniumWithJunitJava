@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: tests.NewTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 22.091 s <<< FAILURE! - in tests.NewTest
+tests.NewTest.titleTest  Time elapsed: 3.066 s  <<< ERROR!
+org.openqa.selenium.NoSuchSessionException: 
+invalid session id
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MacBook-Air.local', ip: 'fe80:0:0:0:1826:b9be:653:ab52%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.183, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: /var/folders/s_/3hy02fcj3d5...}, goog:chromeOptions: {debuggerAddress: localhost:52943}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: c30a956946377a7cd46337de13c4be63
+	at tests.NewTest.titleTest(NewTest.java:44)
+
