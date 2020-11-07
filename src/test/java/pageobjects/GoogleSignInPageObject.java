@@ -5,22 +5,12 @@ import org.openqa.selenium.WebDriver;
 import utilities.DriverUtils;
 
 
-public class GoogleSignInPageObject extends DriverUtils{
-	
-	public GoogleSignInPageObject(WebDriver driver) {
-		super.driver = driver;
-	}
-	
-//
-//	public GoogleSignInPageObject() {
-//		super.driver = driver;
-//	}
-//	
-	
+public class GoogleSignInPageObject{
+
 	String inputEmailTextBox = "xpath-->//input[@type='email']";
 	
 	public void enterEmailText(String email) {
-		this.sendText(inputEmailTextBox, email);
+		DriverUtils.getDriverUtilInstance().sendText(inputEmailTextBox, email);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -28,9 +18,5 @@ public class GoogleSignInPageObject extends DriverUtils{
 			e.printStackTrace();
 		}
 	}
-//	
-//	public WebDriver getDriverSession() {
-//		return super.driver;
-//	}
 
 }

@@ -8,16 +8,33 @@ import utilities.DriverInit;
 public class CommonPageObject {
 
 	private static CommonPageObject single_instance = null;
-	
-	public DriverInit di = new DriverInit();
-	public WebDriver driver = di.getDriver();
-	public GooglePageObject googlePO = new GooglePageObject(getDriverFromCommonObject());
-	public GoogleSignInPageObject googleSignInPO = new GoogleSignInPageObject(getDriverFromCommonObject());
+
+	private static  GooglePageObject googlePO = null ;
+	private static  GoogleSignInPageObject googleSignInPO = null; ;
 	
 	
 	private CommonPageObject() {
 		
 	}
+	
+	public GooglePageObject getGooglePageObject() {
+		
+		if(googlePO == null) {
+			googlePO = new GooglePageObject();
+		}
+		return googlePO;
+		
+	}
+	
+	public GoogleSignInPageObject getGoogleSignInPO() {
+		
+		if(googleSignInPO == null) {
+			googleSignInPO = new GoogleSignInPageObject();
+		}
+		return googleSignInPO;
+		
+	}
+	
 	
 	public static CommonPageObject getCommonPO() {
 		
@@ -28,13 +45,6 @@ public class CommonPageObject {
 		return single_instance;
 	}
 	
-	private WebDriver getDriverFromCommonObject() {
-		if(this.driver == null) {
-			this.driver = di.getDriver();
-			return this.driver;
-		}else {
-			return this.driver;
-		}
-	}
+
 	
 }

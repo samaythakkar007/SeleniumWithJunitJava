@@ -5,47 +5,49 @@ import org.openqa.selenium.WebDriver;
 import utilities.DriverUtils;
 
 
-public class GooglePageObject extends DriverUtils{
+public class GooglePageObject {
 	
 	String searchBox = "xpath-->//input[@name='q']";
 	String searchBtn = "xpath-->(//input[@name='btnK'])[2]";
 	String signInBtn = "xpath-->//a[text()='Sign in']";
 	
-	public GooglePageObject(WebDriver driver) {
-		System.out.println("THIS IS GOOGLE PAGEOBJECT CUNSTROCUTRO");
-		super.driver = driver;
-	}
 	
-	public GooglePageObject() {
-
-	}
-	
-	public void enterValueInSearchBox(String valueToEnter) {
-		this.sendText(searchBox, valueToEnter);
+	public void enterValueInSearchBox(String valueToEnter) throws Exception {
+		try { 
+		DriverUtils.getDriverUtilInstance().sendText(searchBox, valueToEnter);
+		}catch(Exception e) {
+			throw new Exception("Exception occurred while entering value in search box --->"+e);
+		}
 	}
 			
 	public void clickSearchButton() {
-		this.clickElement(searchBtn);
+		DriverUtils.getDriverUtilInstance().clickElement(searchBtn);
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public void clickSignInButton() {
-		this.clickElement(signInBtn);
+		DriverUtils.getDriverUtilInstance().clickElement(signInBtn);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public void navigateToHomepage() {
-		this.getDriver().get("https://www.google.com/");
+		DriverUtils.getDriverUtilInstance().openUrl("https://www.google.com/");
+	}
+	
+	public String getCurrentUrl() {
+		return DriverUtils.getDriverUtilInstance().getCurrentURL();
+	}
+	
+	public String getTitle() {
+		return DriverUtils.getDriverUtilInstance().getTitle();
 	}
 	
 	

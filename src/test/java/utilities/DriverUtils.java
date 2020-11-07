@@ -6,19 +6,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pageobjects.CommonPageObject;
 
-public class DriverUtils extends DriverInit{
+public class DriverUtils {
+	
 
-//	public DriverUtils() {
-//		System.out.println("TIS IS BLANK CONSTRUCOR");
-//	}
-//
-//	public DriverUtils(WebDriver driver) {
-//		System.out.println("TIS IS PARAM CONSTRUCOR");
-//
-//		this.driver = driver;
-//	}
-
+	private static DriverUtils driverUtilsInstance = null;
+	
+	
+	public static DriverUtils getDriverUtilInstance() {
+		
+		if(driverUtilsInstance == null) {
+			driverUtilsInstance = new DriverUtils();
+		}
+		
+		return driverUtilsInstance;
+	}
+	
+	
+	
 	public void clickElement(String elementString) {
 		WebElement element = this.getElement(elementString);
 
@@ -35,7 +41,7 @@ public class DriverUtils extends DriverInit{
 	}
 
 	public String getTitle() {
-		return this.getDriver().getTitle();
+		return DriverInit.getInstance().getDriver().getTitle();
 	}
 
 	public WebElement getElement(String elementString) {
@@ -49,8 +55,15 @@ public class DriverUtils extends DriverInit{
 			by = By.id(elementLocater);
 		}
 
-		return this.getDriver().findElement(by);
+		return DriverInit.getInstance().getDriver().findElement(by);
 
 	}
 
+	public void openUrl(String url) {
+		DriverInit.getInstance().getDriver().navigate().to(url);
+	}
+	
+	public String getCurrentURL() {
+		return DriverInit.getInstance().getDriver().getCurrentUrl();
+	}
 }
