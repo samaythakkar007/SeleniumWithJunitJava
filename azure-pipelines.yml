@@ -23,5 +23,5 @@ steps:
 - task: Genetec.publish-test-result-screenshot.pipeline-extension.PublishTestResultScreenshot@0
   displayName: 'Publish test result screenshot'
   inputs:
-    organization: AzurePipelinePOC
+    organization: samaythakkar007
     screenshotFolder: '**/surefire-reports/'
