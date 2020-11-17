@@ -24,4 +24,4 @@ steps:
   displayName: 'Publish test result screenshot'
   inputs:
     organization: samaythakkar007
-    screenshotFolder: '**/surefire-reports'
+    screenshotFolder: 'surefire-reports'
