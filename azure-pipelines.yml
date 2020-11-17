@@ -24,4 +24,4 @@ steps:
   displayName: 'Publish test result screenshot'
   inputs:
     organization: AzurePipelinePOC
-    screenshotFolder: '**/surefire-reports/screenshot-*.png'
+    screenshotFolder: 'surefire-reports'
